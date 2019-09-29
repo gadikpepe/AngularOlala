@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap');
+$yellow:#f5ba1a;
+
+.title{
+    font-family: 'Be Vietnam', sans-serif;
+    text-align: center;
+}
+.credit {
+	position: relative;
+	z-index: 1;
+	text-align: center;
+	padding: 15px;
+	color: $yellow;
+	a {
+		color: darken($yellow,7%);
+	}
+}

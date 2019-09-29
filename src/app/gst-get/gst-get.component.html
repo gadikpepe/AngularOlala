@@ -1,0 +1,32 @@
+<swal #deleteSwal text="This cannot be undone" type="question" [showCancelButton]="true" [focusCancel]="true">
+</swal>
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Person Name</th>
+            <th>Business Name</th>
+            <th>GST Number</th>
+            <th>City</th>
+            <th>Province</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let business of businesses; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{ business.person_name }}</td>
+            <td>{{ business.business_name }}</td>
+            <td>{{ business.business_gst_number }}</td>
+            <td>{{ business.city }}</td>
+            <td>{{ business.province }}</td>
+            <td>
+                <button [routerLink]="['/company', business._id]" type="button" class="btn btn-warning">Edit</button>
+                <button [swal]="deleteSwal" (confirm)="deleteBusiness(business._id)" type="button"
+                    class="btn btn-danger" style="margin: 0px 5px;">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button routerLink="/company/register" type="button" class="btn btn-warning">Add New</button>
+<button (click)="refresh()" type="button" class="btn btn-light" style="margin: 0px 10px;">refresh</button>
